@@ -4,9 +4,8 @@ using TechnicalChallengeApi.Domain.Entity;
 
 namespace TechnicalChallengeApi.Repository.Repository.Contract
 {
-    public interface ProductRepository
+    public interface ProductRepository : GenericRepository<Product>
     {
-        Product Save(Product product);
         Product FindByName(string name);
     }
 }
