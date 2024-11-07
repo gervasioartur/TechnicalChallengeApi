@@ -6,7 +6,7 @@ namespace TechnicalChallengeApi.Repository.Repository.Contract
 {
     public interface ProductRepository
     {
-        Product Create(Product product);
+        Product Save(Product product);
         Product FindByName(string name);
     }
 }
