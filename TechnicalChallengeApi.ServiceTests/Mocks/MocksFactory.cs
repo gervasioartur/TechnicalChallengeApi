@@ -28,7 +28,7 @@ namespace TechnicalChallengeApi.ServiceTests.Mocks
                  .RuleFor(p => p.Description, f => f.Random.Word())
                  .RuleFor(p => p.Price, f => f.Random.Number())
                  .RuleFor(p => p.Quantity, f => f.Random.Number())
-                 .RuleFor(p => p.Active, f => true)
+                 .RuleFor(p => p.Active, f => false)
                  .RuleFor(p => p.CreatedAt, f => f.Date.Past());
 
             return product.Generate();
