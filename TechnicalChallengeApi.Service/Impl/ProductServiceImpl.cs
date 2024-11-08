@@ -18,6 +18,8 @@ namespace TechnicalChallengeApi.Service.Impl
         {
             Product savedProduct =  this.repository.FindByName(product.Name);
             if (savedProduct != null) throw new ConflictException("Product alredy registered!");
+            product.Active = true;
+            repository.Save(product);
         }
     }
 }
