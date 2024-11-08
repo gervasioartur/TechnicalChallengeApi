@@ -4,7 +4,7 @@
     {
         T FindById(Guid id);
         IEnumerable<T> GetAll();
-        void Save(T entity);
+        Task Save(T entity);
         void Update(T entity);
         void Delete(Guid id);
     }

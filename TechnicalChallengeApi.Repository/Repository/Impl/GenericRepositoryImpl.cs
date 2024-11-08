@@ -1,9 +1,17 @@
-﻿using TechnicalChallengeApi.Repository.Repository.Contract;
+﻿using TechnicalChallengeApi.Repository.Data;
+using TechnicalChallengeApi.Repository.Repository.Contract;
 
 namespace TechnicalChallengeApi.Repository.Repository.Impl
 {
     public class GenericRepositoryImpl<T> : GenericRepository<T> where T : class
     {
+        private ApplicationDbContext dbContext;
+
+        public GenericRepositoryImpl(ApplicationDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         public void Delete(Guid id)
         {
             throw new NotImplementedException();
@@ -19,9 +27,10 @@ namespace TechnicalChallengeApi.Repository.Repository.Impl
             throw new NotImplementedException();
         }
 
-        public void Save(T entity)
+        public async Task Save(T entity)
         {
-            throw new NotImplementedException();
+           await dbContext.Set<T>().AddAsync(entity);
+           await dbContext.SaveChangesAsync();
         }
 
         public void Update(T entity)
